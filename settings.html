@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>БиблиоСфера — Настройки</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+<div class="app-wrapper">
+  <aside class="sidebar">
+    <div class="logo">Библио<span>Сфера</span></div>
+    <div class="nav-section">
+      <h4>УЧЕТ И ФОНДЫ</h4>
+      <a href="index.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> <span>Главная панель</span></a>
+      <a href="catalog.html" class="nav-item"><i class="fas fa-book"></i> <span>Каталог книг</span></a>
+      <a href="readers.html" class="nav-item"><i class="fas fa-users"></i> <span>Читатели</span></a>
+      <a href="circulation.html" class="nav-item"><i class="fas fa-exchange-alt"></i> <span>Выдача и возврат</span></a>
+    </div>
+    <div class="nav-section">
+      <h4>АНАЛИТИКА</h4>
+      <a href="reports.html" class="nav-item"><i class="fas fa-chart-line"></i> <span>Отчеты и статистика</span></a>
+      <a href="debtors.html" class="nav-item"><i class="fas fa-clock"></i> <span>Задолжники</span></a>
+    </div>
+    <div class="nav-section">
+      <a href="settings.html" class="nav-item active"><i class="fas fa-sliders-h"></i> <span>Настройки</span></a>
+    </div>
+    <div class="user-info">
+      <div class="avatar">АС</div>
+      <span>Анна Смирнова<br><small>Библиотекарь</small></span>
+    </div>
+  </aside>
+
+  <main class="main-content settings-main">
+    <h2 class="page-title"><i class="fas fa-cog"></i> Настройки системы</h2>
+    <p class="page-subtitle">Управление параметрами читального зала</p>
+
+    <div class="settings-grid">
+      <!-- Левая колонка: меню настроек -->
+      <div class="settings-menu">
+        <button class="settings-menu-btn active" data-tab="general"><i class="fas fa-globe"></i> Общие параметры</button>
+        <button class="settings-menu-btn" data-tab="library"><i class="fas fa-building"></i> Информация о библиотеке</button>
+        <button class="settings-menu-btn" data-tab="hardware"><i class="fas fa-microchip"></i> Оборудование и автоматизация</button>
+        <button class="settings-menu-btn" data-tab="printing"><i class="fas fa-print"></i> Печать квитанций</button>
+        <button class="settings-menu-btn" data-tab="staff"><i class="fas fa-users-cog"></i> Сотрудники и роли</button>
+        <button class="settings-menu-btn" data-tab="importexport"><i class="fas fa-file-import"></i> Импорт / Экспорт</button>
+      </div>
+
+      <!-- Правая колонка: содержимое -->
+      <div class="settings-content">
+        <!-- Вкладка: Общие параметры -->
+        <div id="tab-general" class="settings-tab active">
+          <h3><i class="fas fa-gavel"></i> Правила выдачи</h3>
+          <div class="setting-item">
+            <label>Максимальное количество книг на руках</label>
+            <input type="number" id="maxBooksPerReader" value="5" min="1" max="20">
+          </div>
+          <div class="setting-item">
+            <label>Стандартный срок возврата (дней)</label>
+            <input type="number" id="defaultLoanDays" value="30" min="1" max="90">
+          </div>
+          <div class="setting-item">
+            <label>Штраф за просрочку (руб./день)</label>
+            <input type="number" id="finePerDay" value="5" min="0" max="50">
+          </div>
+          <div class="setting-item">
+            <label>Льготный период (дней без штрафа)</label>
+            <input type="number" id="gracePeriod" value="3" min="0" max="14">
+          </div>
+        </div>
+
+        <!-- Вкладка: Информация о библиотеке -->
+        <div id="tab-library" class="settings-tab">
+          <h3><i class="fas fa-info-circle"></i> Информация о библиотеке</h3>
+          <div class="setting-item">
+            <label>Название читального зала</label>
+            <input type="text" id="libraryName" value="БиблиоСфера - Главный кампус">
+          </div>
+          <div class="setting-item">
+            <label>Email для уведомлений</label>
+            <input type="email" id="libraryEmail" value="library@university.edu">
+          </div>
+          <div class="setting-item">
+            <label>Контактный телефон</label>
+            <input type="text" id="libraryPhone" value="+7 (495) 123-45-67">
+          </div>
+          <div class="setting-item">
+            <label>Часы работы</label>
+            <input type="text" id="workingHours" value="Пн-Пт: 09:00 - 19:00, Сб: 10:00 - 15:00">
+          </div>
+        </div>
+
+        <!-- Вкладка: Оборудование -->
+        <div id="tab-hardware" class="settings-tab">
+          <h3><i class="fas fa-microchip"></i> Оборудование и автоматизация</h3>
+          <div class="setting-item checkbox">
+            <label>
+              <input type="checkbox" id="useBarcodeScanner" checked>
+              Использовать сканер штрих-кодов
+            </label>
+          </div>
+          <div class="setting-item checkbox">
+            <label>
+              <input type="checkbox" id="autoFocusInput" checked>
+              Автоматически фокусироваться на поле ввода при выдаче/возврате
+            </label>
+          </div>
+          <div class="setting-item checkbox">
+            <label>
+              <input type="checkbox" id="autoClearAfterProcess" checked>
+              Очищать поле ввода после обработки
+            </label>
+          </div>
+        </div>
+
+        <!-- Вкладка: Печать квитанций -->
+        <div id="tab-printing" class="settings-tab">
+          <h3><i class="fas fa-print"></i> Печать квитанций</h3>
+          <div class="setting-item checkbox">
+            <label>
+              <input type="checkbox" id="suggestPrintReceipt" checked>
+              Предлагать печать бумажной квитанции после успешной операции
+            </label>
+          </div>
+          <div class="setting-item checkbox">
+            <label>
+              <input type="checkbox" id="autoPrintReceipt">
+              Автоматически печатать квитанцию (без подтверждения)
+            </label>
+          </div>
+        </div>
+
+        <!-- Вкладка: Сотрудники и роли -->
+        <div id="tab-staff" class="settings-tab">
+          <h3><i class="fas fa-users-cog"></i> Сотрудники и роли</h3>
+          <div class="staff-table-container">
+            <table class="staff-table">
+              <thead><tr><th>Сотрудник</th><th>Роль</th><th>Статус</th><th>Действия</th></tr></thead>
+              <tbody id="staffTableBody"></tbody>
+            </table>
+          </div>
+          <button id="addStaffBtn" class="btn-outline-small"><i class="fas fa-plus"></i> Добавить сотрудника</button>
+        </div>
+
+        <!-- Вкладка: Импорт/Экспорт -->
+        <div id="tab-importexport" class="settings-tab">
+          <h3><i class="fas fa-file-import"></i> Импорт / Экспорт данных</h3>
+          <div class="import-export-row">
+            <button id="exportAllDataBtn" class="btn-outline"><i class="fas fa-download"></i> Экспорт всех данных (JSON)</button>
+            <button id="importDataBtn" class="btn-outline"><i class="fas fa-upload"></i> Импорт данных</button>
+            <input type="file" id="importFileInput" accept=".json" style="display: none;">
+          </div>
+          <div class="import-export-row">
+            <button id="exportLogsBtn" class="btn-outline"><i class="fas fa-history"></i> Экспорт журнала операций (CSV)</button>
+          </div>
+          <div class="import-export-row">
+            <button id="resetSettingsBtn" class="btn-danger"><i class="fas fa-undo-alt"></i> Сбросить настройки по умолчанию</button>
+          </div>
+        </div>
+
+        <div class="settings-actions">
+          <button id="saveSettingsBtn" class="btn-primary"><i class="fas fa-save"></i> Сохранить все настройки</button>
+        </div>
+      </div>
+    </div>
+    <footer>© БиблиоСфера — интеллектуальная система книговыдачи</footer>
+  </main>
+</div>
+
+<div id="staffModal" class="modal">
+  <div class="modal-card">
+    <h3 id="staffModalTitle">Добавить сотрудника</h3>
+    <div id="staffModalBody">
+      <label>ФИО:</label><input type="text" id="staffName" placeholder="Иванов Иван Иванович">
+      <label>Email:</label><input type="email" id="staffEmail" placeholder="ivanov@library.ru">
+      <label>Роль:</label>
+      <select id="staffRole">
+        <option value="Библиотекарь">Библиотекарь</option>
+        <option value="Старший библиотекарь">Старший библиотекарь</option>
+        <option value="Администратор">Администратор</option>
+        <option value="Заведующий">Заведующий</option>
+      </select>
+    </div>
+    <div class="modal-buttons">
+      <button class="btn-primary" id="saveStaffBtn">Сохранить</button>
+      <button class="btn-outline" id="closeStaffModalBtn">Отмена</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/settings.js"></script>
+</body>
+</html>

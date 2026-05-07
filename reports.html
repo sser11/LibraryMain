@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>БиблиоСфера — Отчеты и статистика</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/reports.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="app-wrapper">
+  <aside class="sidebar">
+    <div class="logo">Библио<span>Сфера</span></div>
+    <div class="nav-section">
+      <h4>УЧЕТ И ФОНДЫ</h4>
+      <a href="index.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> <span>Главная панель</span></a>
+      <a href="catalog.html" class="nav-item"><i class="fas fa-book"></i> <span>Каталог книг</span></a>
+      <a href="readers.html" class="nav-item"><i class="fas fa-users"></i> <span>Читатели</span></a>
+      <a href="circulation.html" class="nav-item"><i class="fas fa-exchange-alt"></i> <span>Выдача и возврат</span></a>
+    </div>
+    <div class="nav-section">
+      <h4>АНАЛИТИКА</h4>
+      <a href="reports.html" class="nav-item"><i class="fas fa-chart-line"></i> <span>Отчеты и статистика</span></a>
+      <a href="debtors.html" class="nav-item"><i class="fas fa-clock"></i> <span>Задолжники</span></a>
+    </div>
+    <div class="nav-section">
+      <a href="settings.html" class="nav-item"><i class="fas fa-sliders-h"></i> <span>Настройки</span></a>
+    </div>
+    <div class="user-info">
+      <div class="avatar">АС</div>
+      <span>Анна Смирнова<br><small>Библиотекарь</small></span>
+    </div>
+  </aside>
+
+  <main class="main-content reports-main">
+    <h2 class="page-title"><i class="fas fa-chart-pie"></i> Отчеты и статистика</h2>
+    <p class="page-subtitle">Анализ активности читального зала и движения фонда</p>
+
+    <div class="stats-grid-reports">
+      <div class="stat-card-reports"><h3><i class="fas fa-book"></i> Выдано книг</h3><div class="stat-number" id="issuedTotal">0</div></div>
+      <div class="stat-card-reports"><h3><i class="fas fa-undo-alt"></i> Возвращено книг</h3><div class="stat-number" id="returnedTotal">0</div></div>
+      <div class="stat-card-reports"><h3><i class="fas fa-user-plus"></i> Новых читателей</h3><div class="stat-number" id="newReadersTotal">0</div></div>
+      <div class="stat-card-reports"><h3><i class="fas fa-exclamation-triangle"></i> Новых должников</h3><div class="stat-number" id="newDebtorsTotal">0</div><small>Без изменений</small></div>
+    </div>
+
+    <div class="charts-row">
+      <div class="chart-card">
+        <h3><i class="fas fa-chart-bar"></i> Динамика книговыдачи</h3>
+        <canvas id="weeklyChart" width="400" height="250"></canvas>
+        <div class="chart-legend"><span class="legend-issue">Выдача</span> <span class="legend-return">Возврат</span></div>
+      </div>
+      <div class="chart-card">
+        <h3><i class="fas fa-chart-pie"></i> Посетители по факультетам</h3>
+        <canvas id="facultyChart" width="300" height="250"></canvas>
+      </div>
+    </div>
+
+    <div class="reports-actions">
+      <button id="refreshReportsBtn" class="btn-primary"><i class="fas fa-sync-alt"></i> Обновить статистику</button>
+      <button id="exportReportsBtn" class="btn-outline"><i class="fas fa-download"></i> Экспорт отчета (CSV)</button>
+    </div>
+    <footer>© БиблиоСфера — интеллектуальная система книговыдачи</footer>
+  </main>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/reports.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>БиблиоСфера — Каталог книг</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/catalog.css">
+</head>
+<body>
+<div class="app-wrapper">
+  <aside class="sidebar">
+    <div class="logo">Библио<span>Сфера</span></div>
+    <div class="nav-section">
+      <h4>УЧЕТ И ФОНДЫ</h4>
+      <a href="index.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> <span>Главная панель</span></a>
+      <a href="catalog.html" class="nav-item"><i class="fas fa-book"></i> <span>Каталог книг</span></a>
+      <a href="readers.html" class="nav-item"><i class="fas fa-users"></i> <span>Читатели</span></a>
+      <a href="circulation.html" class="nav-item"><i class="fas fa-exchange-alt"></i> <span>Выдача и возврат</span></a>
+    </div>
+    <div class="nav-section">
+      <h4>АНАЛИТИКА</h4>
+      <a href="reports.html" class="nav-item"><i class="fas fa-chart-line"></i> <span>Отчеты и статистика</span></a>
+      <a href="debtors.html" class="nav-item"><i class="fas fa-clock"></i> <span>Задолжники</span></a>
+    </div>
+    <div class="nav-section">
+      <a href="settings.html" class="nav-item"><i class="fas fa-sliders-h"></i> <span>Настройки</span></a>
+    </div>
+    <div class="user-info">
+      <div class="avatar">АС</div>
+      <span>Анна Смирнова<br><small>Библиотекарь</small></span>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" id="catalogSearchInput" placeholder="Поиск по книгам (название, автор, инв. номер)...">
+      <button id="catalogSearchBtn"><i class="fas fa-search"></i> Искать</button>
+      <button id="resetFilterBtn" class="btn-outline-small"><i class="fas fa-undo-alt"></i> Сброс</button>
+    </div>
+
+    <div class="catalog-header">
+      <h2><i class="fas fa-book"></i> Каталог книг</h2>
+      <p>Управление фондом читального зала (Всего: <span id="totalBooksCount">0</span> экземпляров)</p>
+    </div>
+
+    <div class="category-tabs">
+      <button class="category-btn active" data-category="all">Все книги</button>
+      <button class="category-btn" data-category="Учебная">Учебная литература</button>
+      <button class="category-btn" data-category="Научная">Научная</button>
+      <button class="category-btn" data-category="Художественная">Художественная</button>
+      <button class="category-btn" data-category="Справочная">Справочная</button>
+    </div>
+
+    <div class="table-container">
+      <table class="catalog-table">
+        <thead>
+          <tr><th>Инв. №</th><th>Название и Автор</th><th>Категория</th><th>Год</th><th>Кол-во</th><th>Статус</th><th>Действия</th></thead>
+        <tbody id="catalogTableBody"></tbody>
+      </table>
+    </div>
+    <div class="catalog-actions">
+      <button class="btn-primary" id="addBookBtn"><i class="fas fa-plus"></i> Добавить книгу</button>
+      <button class="btn-outline" id="exportCsvBtn"><i class="fas fa-download"></i> Экспорт CSV</button>
+    </div>
+    <footer>© БиблиоСфера — интеллектуальная система книговыдачи</footer>
+  </main>
+</div>
+
+<div id="bookModal" class="modal">
+  <div class="modal-card">
+    <h3 id="bookModalTitle">Добавить книгу</h3>
+    <div id="bookModalBody">
+      <label>Инвентарный номер:</label><input type="text" id="bookInv" placeholder="например #10405">
+      <label>Название:</label><input type="text" id="bookTitle" placeholder="Название книги">
+      <label>Автор:</label><input type="text" id="bookAuthor" placeholder="Автор">
+      <label>Категория:</label>
+      <select id="bookCategory"><option>Учебная</option><option>Научная</option><option>Художественная</option><option>Справочная</option></select>
+      <label>Год издания:</label><input type="number" id="bookYear" placeholder="Год">
+      <label>Всего экземпляров:</label><input type="number" id="bookTotal" placeholder="Количество">
+    </div>
+    <div class="modal-buttons">
+      <button class="btn-primary" id="saveBookBtn">Сохранить</button>
+      <button class="btn-outline" id="closeBookModalBtn">Отмена</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/app.js"></script>
+<script src="js/catalog.js"></script>
+</body>
+</html>

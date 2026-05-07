@@ -1,0 +1,85 @@
+.catalog-header {
+  margin-bottom: 1.5rem;
+}
+.catalog-header h2 {
+  color: var(--brown-dark);
+  margin-bottom: 0.3rem;
+}
+.catalog-header p {
+  color: #8b694a;
+}
+
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.category-btn {
+  background: #f4ede5;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-weight: 600;
+  color: #5e3e24;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.category-btn.active, .category-btn:hover {
+  background: var(--brown-medium);
+  color: white;
+}
+
+.catalog-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.catalog-table th {
+  background: var(--brown-pale);
+  padding: 14px 12px;
+  text-align: left;
+  color: var(--brown-dark);
+  font-weight: 600;
+}
+.catalog-table td {
+  padding: 12px;
+  border-bottom: 1px solid #f0e2d4;
+  color: #3e2a1f;
+}
+.catalog-table tr:hover {
+  background: #fef8f0;
+}
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 40px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.status-available {
+  background: #e0f0e5;
+  color: #2d6a4f;
+}
+.status-issued {
+  background: #ffe0b5;
+  color: #b45309;
+}
+.action-icon {
+  color: var(--brown-medium);
+  cursor: pointer;
+  margin: 0 6px;
+  font-size: 1.1rem;
+}
+.action-icon:hover {
+  color: var(--brown-dark);
+}
+.catalog-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: flex-end;
+}

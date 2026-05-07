@@ -1,0 +1,193 @@
+.settings-main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-title {
+  color: var(--brown-dark);
+  margin-bottom: 0.3rem;
+  font-size: 1.6rem;
+}
+
+.page-subtitle {
+  color: #8b694a;
+  margin-bottom: 1.5rem;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 1.5rem;
+  background: var(--white);
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.settings-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-right: 1px solid #e9dbc9;
+  padding-right: 1rem;
+}
+
+.settings-menu-btn {
+  background: transparent;
+  border: none;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #5e3e24;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.settings-menu-btn i {
+  width: 28px;
+  color: var(--brown-medium);
+}
+
+.settings-menu-btn:hover {
+  background: var(--brown-pale);
+}
+
+.settings-menu-btn.active {
+  background: var(--brown-medium);
+  color: white;
+}
+
+.settings-menu-btn.active i {
+  color: white;
+}
+
+.settings-content {
+  padding-left: 1rem;
+}
+
+.settings-tab {
+  display: none;
+}
+
+.settings-tab.active {
+  display: block;
+}
+
+.settings-tab h3 {
+  color: var(--brown-dark);
+  margin-bottom: 1.2rem;
+  font-size: 1.2rem;
+}
+
+.setting-item {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.setting-item label {
+  width: 280px;
+  font-weight: 500;
+  color: #5e3e24;
+}
+
+.setting-item input[type="text"],
+.setting-item input[type="email"],
+.setting-item input[type="number"] {
+  flex: 1;
+  min-width: 200px;
+  padding: 8px 12px;
+  border: 1px solid #d6c4b0;
+  border-radius: 40px;
+  background: #faf6ef;
+}
+
+.setting-item.checkbox label {
+  width: auto;
+  cursor: pointer;
+}
+
+.setting-item.checkbox input {
+  margin-right: 8px;
+}
+
+.staff-table-container {
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.staff-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.staff-table th, .staff-table td {
+  padding: 10px 8px;
+  text-align: left;
+  border-bottom: 1px solid #f0e2d4;
+}
+
+.staff-table th {
+  color: #8b694a;
+  font-weight: 600;
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 40px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: var(--brown-pale);
+  color: var(--brown-dark);
+}
+
+.delete-staff-icon {
+  color: #b45309;
+  cursor: pointer;
+}
+
+.import-export-row {
+  margin-bottom: 1rem;
+}
+
+.btn-danger {
+  background: #b45309;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 40px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.settings-actions {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e9dbc9;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+  .settings-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-right: none;
+    border-bottom: 1px solid #e9dbc9;
+    padding-bottom: 1rem;
+  }
+  .setting-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .setting-item label {
+    width: auto;
+  }
+}

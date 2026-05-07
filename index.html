@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>БиблиоСфера — Главная</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-wrapper">
+  <aside class="sidebar">
+    <div class="logo">Библио<span>Сфера</span></div>
+    <div class="nav-section">
+      <h4>УЧЕТ И ФОНДЫ</h4>
+      <a href="index.html" class="nav-item active"><i class="fas fa-tachometer-alt"></i> <span>Главная панель</span></a>
+      <a href="catalog.html" class="nav-item"><i class="fas fa-book"></i> <span>Каталог книг</span></a>
+      <a href="readers.html" class="nav-item"><i class="fas fa-users"></i> <span>Читатели</span></a>
+      <a href="circulation.html" class="nav-item"><i class="fas fa-exchange-alt"></i> <span>Выдача и возврат</span></a>
+    </div>
+    <div class="nav-section">
+      <h4>АНАЛИТИКА</h4>
+      <a href="reports.html" class="nav-item"><i class="fas fa-chart-line"></i> <span>Отчеты и статистика</span></a>
+      <a href="debtors.html" class="nav-item"><i class="fas fa-clock"></i> <span>Задолжники</span></a>
+    </div>
+    <div class="nav-section">
+      <a href="settings.html" class="nav-item"><i class="fas fa-sliders-h"></i> <span>Настройки</span></a>
+    </div>
+    <div class="user-info">
+      <div class="avatar">АС</div>
+      <span>Анна Смирнова<br><small>Библиотекарь</small></span>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" id="globalSearchInput" placeholder="Поиск по книгам, авторам или читателям...">
+      <button id="searchBtn"><i class="fas fa-arrow-right"></i> Найти</button>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card"><h3><i class="fas fa-book-open"></i> Книг на руках</h3><div class="stat-number" id="booksOnHands">0</div></div>
+      <div class="stat-card"><h3><i class="fas fa-user-check"></i> Посетителей сегодня</h3><div class="stat-number" id="visitorsToday">0</div></div>
+      <div class="stat-card"><h3><i class="fas fa-exclamation-triangle"></i> Просроченные возвраты</h3><div class="stat-number" id="overdueCount">0</div></div>
+    </div>
+
+    <div class="two-columns">
+      <div class="service-box">
+        <h3><i class="fas fa-qrcode"></i> Быстрое обслуживание</h3>
+        <p>Отсканируйте штрих-код книги или читательского билета для мгновенной обработки</p>
+        <div class="mode-switch" id="modeSwitch">
+          <button class="mode-btn active" data-mode="issue">📘 Выдача книги</button>
+          <button class="mode-btn" data-mode="return">📙 Возврат книги</button>
+        </div>
+        <div class="barcode-input">
+          <input type="text" id="barcodeInput" placeholder="Штрих-код или инвентарный номер">
+          <div class="action-buttons">
+            <button class="btn-primary" id="processBtn"><i class="fas fa-arrow-right"></i> Обработать →</button>
+            <button class="btn-outline" id="newReaderBtn"><i class="fas fa-user-plus"></i> Новый читатель</button>
+          </div>
+        </div>
+        <small>Примеры: R001 (читатель), B101 (книга)</small>
+      </div>
+
+      <div class="operations-table-section">
+        <h3><i class="fas fa-history"></i> Последние операции</h3>
+        <div class="table-container">
+          <table class="operations-table">
+            <thead><tr><th>Время</th><th>Читатель</th><th>Книга</th><th>Тип</th><th>Статус</th></thead>
+            <tbody id="operationsTableBody"></tbody>
+          </table>
+        </div>
+        <div class="view-all">
+          <button id="viewAllBtn"><i class="fas fa-list-ul"></i> Посмотреть все последние операции</button>
+        </div>
+      </div>
+    </div>
+    <footer>© БиблиоСфера — интеллектуальная система книговыдачи</footer>
+  </main>
+</div>
+
+<div id="genericModal" class="modal">
+  <div class="modal-card">
+    <h3 id="modalTitle">Информация</h3>
+    <div id="modalBody"></div>
+    <div class="modal-buttons"><button class="btn-outline" id="closeModalBtn">Закрыть</button></div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/app.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
